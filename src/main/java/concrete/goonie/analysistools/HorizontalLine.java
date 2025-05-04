@@ -17,6 +17,13 @@ public class HorizontalLine  extends Tool {
         this.line = new Line2D.Double(0, price1, 0, price1);
     }
 
+    public HorizontalLine(double price1, Color color, boolean isDraggable, boolean isDotted, String s) {
+        this(null,price1);
+        setColor(color);
+        setDotted(isDotted);
+        setDraggable(isDraggable);
+    }
+
     @Override
     public double calculateArea() {
         return 0;

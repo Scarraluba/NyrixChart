@@ -6,6 +6,7 @@ import concrete.goonie.core.Renderer;
 import concrete.goonie.core.datarenderers.CandlestickRenderer;
 import concrete.goonie.core.datarenderers.HLRenderer;
 import concrete.goonie.core.datarenderers.LineRenderer;
+import concrete.goonie.core.datarenderers.PositionsRenderer;
 import concrete.goonie.datatypes.LineData;
 import concrete.goonie.indicators.Indicator;
 import concrete.goonie.indicators.Indicators;
@@ -24,6 +25,7 @@ public class DataRenderer extends Renderer {
     private final HLRenderer hlcRenderer;
     private final Indicators indicators;
     private final LineRenderer lineRenderer;
+    private final PositionsRenderer positionsRenderer;
     private final LineData lineData;
     private final HorizontalPriceLine horizontalLine;
     private final ChartMouseHandler mouseHandler;
@@ -37,6 +39,7 @@ public class DataRenderer extends Renderer {
         hlcRenderer = new HLRenderer(config);
         lineRenderer = new LineRenderer(config);
         horizontalLine = new HorizontalPriceLine(config, 0);
+        positionsRenderer = new PositionsRenderer(config);
 
         renderers = new ArrayList<>();
         renderers.add(candlestickRenderer);
@@ -47,6 +50,7 @@ public class DataRenderer extends Renderer {
         indicators = new Indicators(config);
         renderers.add(horizontalLine);
         renderers.add(indicators);
+        renderers.add(positionsRenderer);
     }
 
     @Override
