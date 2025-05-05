@@ -18,11 +18,11 @@ public class PositionLine extends Renderer {
     public PositionLine(ChartConfig config,Position position) {
         super(config);
         double volume = position.getVolume();
-        lines.add(new HorizontalLine(position.getPriceOpen(),
+        lines.add(new HorizontalLine(config,position.getPriceOpen(),
                 new Color(0x266688), false, true, position.getType() == POSITION_TYPE_BUY.ordinal() ? "Buy " + volume : "Sell " + volume));
-        lines.add(new HorizontalLine(position.getStopLoss(),
+        lines.add(new HorizontalLine(config,position.getStopLoss(),
                 Color.RED, true, true, "Stop Loss"));
-        lines.add(new HorizontalLine(position.getTakeProfit(),
+        lines.add(new HorizontalLine(config,position.getTakeProfit(),
                 Color.GREEN, true, true, "Take Profit"));
     }
 

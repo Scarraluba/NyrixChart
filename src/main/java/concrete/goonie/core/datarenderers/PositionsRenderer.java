@@ -14,11 +14,12 @@ import java.util.ArrayList;
 
 public class PositionsRenderer extends Renderer {
     private ArrayList<PositionLine> lines = new ArrayList<>();
-    private Positions candleData = Account.getInstance().getPositions();
+    private Positions candleData;
     private PositionLine positionLine;
 
     public PositionsRenderer(ChartConfig config) {
         super(config);
+        candleData = Account.getInstance().getPositions();
     }
 
     @Override
